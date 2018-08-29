@@ -1,0 +1,52 @@
+spring:
+    rabbitmq:
+        host: ${SPRING_RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
+        port: ${SPRING_RABBITMQ_PORT:5672}
+        username: ${SPRING_RABBITMQ_USERNAME:founder}
+        password: ${SPRING_RABBITMQ_PASSWORD:Founder123}
+        publisher-confirms: true
+        virtual-host: /
+    datasource:
+      url: jdbc:h2:tcp://localhost:9096/./target/test
+    jpa.hibernate.ddl-auto: update
+    application.name: ids-service-user
+management:
+  endpoint:
+    health:
+      show-details: always
+logging:
+  config: classpath:logback-spring.xml
+  level.com.founder.ark.ids: trace
+redis:
+  host: redis
+  port: 6379
+  check: false
+ids.home.url: http://ids-admin.fzyun.io
+kb.home.url: http://kb.fzyun.net
+##### KEYCLOAK #####
+keycloak:
+  realm: ${KEYCLOAK_REALM:Founder} #REQUIRED
+  auth-server-url: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth} #REQUIRED
+  ssl-required: external
+  resource: ${KEYCLOAK_CLIENT} #REQUIRED
+  credentials.secret: ${CLIENT_SECRET} #REQUIRED
+  security-constraints[0]: #Secure the app by intercepting all requests with Keycloak
+    auth-roles[0]: uma_authorization
+    security-collections[0].patterns[0]: /*
+  policy-enforcer-config: #Enable policy enforcer
+    on-deny-redirect-to: /accessDenied
+    enforcement-mode: ENFORCING
+  cors: true
+  enabled: false
+##### AVATAR: KEYCLOAK-ADMIN-CLIENT #####
+avatar:
+  keycloak:
+    admin-realm: ${KEYCLOAK_ADMINREALM:master}
+    client: ${KEYCLOA_ADMINCLIENT:admin-cli}
+    serverUrl: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth}
+    username: ${KEYCLOAK_USER:admin} #REQUIRED
+    password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
+    realm: ${KEYCLOAK_REALM:Founder}
+eureka.client.service-url:
+  defaultZone: http://registry.service-governance.dev.fzyun.io/eureka
+management.endpoints.web.exposure.include: [refresh,health,info]
