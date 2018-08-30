@@ -60,7 +60,7 @@ spring:
       path: /console
       settings:
         trace: false
-        web-allow-others: false
+        web-allow-others: true
 
   rabbitmq:
     host: ${SPRING_RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
