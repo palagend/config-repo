@@ -1,6 +1,6 @@
 management.endpoints.web.exposure.include: [refresh,health,info]
 logging:
-  config: classpath:logback-spring.xml
+  config: classpath:logback-dev.xml
   level.com.founder.ark.ids: trace
 redis:
   host: redis
