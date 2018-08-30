@@ -70,3 +70,4 @@ spring:
     password: ${RABBITMQ_PASSWORD:Founder123}
     publisher-confirms: true
     virtual-host: /
+logstash.destination: elk.service-governance:5044
