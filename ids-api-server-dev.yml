@@ -33,7 +33,7 @@ avatar:
     serverUrl: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER:admin} #REQUIRED
     password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
-    realm: ${KEYCLOAK_REALM:Founder}
+    realm: ${KEYCLOAK_REALM:FounderID}
 eureka.client.service-url:
   defaultZone: http://registry.service-governance.dev.fzyun.io/eureka
 
