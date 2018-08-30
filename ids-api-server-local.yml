@@ -1,6 +1,5 @@
 management.endpoints.web.exposure.include: '*'
 logging:
-  config: classpath:logback-spring.xml
   level.com.founder.ark.ids: trace
 redis:
   host: redis
