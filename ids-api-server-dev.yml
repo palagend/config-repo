@@ -11,7 +11,7 @@ kb.home.url: http://kb.fzyun.net
 
 ##### KEYCLOAK #####
 keycloak:
-  realm: ${KEYCLOAK_REALM:Founder} #REQUIRED
+  realm: ${KEYCLOAK_REALM:FounderID} #REQUIRED
   auth-server-url: ${AUTH_SERVER_URL:http://kc.kc.dev.fzyun.io/auth} #REQUIRED
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
