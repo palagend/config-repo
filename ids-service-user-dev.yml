@@ -1,18 +1,18 @@
-management.endpoints.web.exposure.include: '*'
+management.endpoints.web.exposure.include: [refresh,health,info]
 logging:
   config: classpath:logback-spring.xml
   level.com.founder.ark.ids: trace
 redis:
   host: redis
   port: 6379
-  check: false
+  check: true
 ids.home.url: http://ids-admin.fzyun.io
 kb.home.url: http://kb.fzyun.net
 
 ##### KEYCLOAK #####
 keycloak:
-  realm: Founder
-  auth-server-url: http://auth.stage.fzyun.io/auth
+  realm: ${KEYCLOAK_REALM:Founder} #REQUIRED
+  auth-server-url: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth} #REQUIRED
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
   credentials.secret: ${CLIENT_SECRET} #REQUIRED
@@ -22,19 +22,20 @@ keycloak:
   policy-enforcer-config: #Enable policy enforcer
     on-deny-redirect-to: /accessDenied
     enforcement-mode: ENFORCING
+  cors: true
   enabled: false
 
 ##### AVATAR: KEYCLOAK-ADMIN-CLIENT #####
 avatar:
   keycloak:
-    admin-realm: master
-    client: admin-cli
-    serverUrl: http://auth.stage.fzyun.io/auth
+    admin-realm: ${KEYCLOAK_ADMINREALM:master}
+    client: ${KEYCLOA_ADMINCLIENT:admin-cli}
+    serverUrl: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth}
     username: ${KEYCLOAK_USER:admin} #REQUIRED
-    password: ${KEYCLOAK_PASSWORD} #REQUIRED
+    password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
     realm: ${KEYCLOAK_REALM:Founder}
 eureka.client.service-url:
-  defaultZone: http://localhost:8761/eureka
+  defaultZone: http://registry.service-governance.dev.fzyun.io/eureka
 
 ###### Spring H2 Database 设置 (如果用MySQL请替换这里的设置)######
 spring:
@@ -62,9 +63,9 @@ spring:
         web-allow-others: false
 
   rabbitmq:
-    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
-    port: ${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
+    host: ${SPRING_RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:founder}
+    password: ${SPRING_RABBITMQ_PASSWORD:Founder123}
     publisher-confirms: true
     virtual-host: /
