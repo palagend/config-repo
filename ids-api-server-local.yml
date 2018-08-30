@@ -12,7 +12,7 @@ kb.home.url: http://kb.fzyun.net
 ##### KEYCLOAK #####
 keycloak:
   realm: Founder
-  auth-server-url: http://auth.stage.fzyun.io/auth
+  auth-server-url: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth}
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
   credentials.secret: ${CLIENT_SECRET} #REQUIRED
@@ -29,7 +29,7 @@ avatar:
   keycloak:
     admin-realm: master
     client: admin-cli
-    serverUrl: http://auth.stage.fzyun.io/auth
+    serverUrl: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER:admin} #REQUIRED
     password: ${KEYCLOAK_PASSWORD} #REQUIRED
     realm: ${KEYCLOAK_REALM:Founder}
