@@ -33,7 +33,7 @@ avatar:
     serverUrl: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER:admin} #REQUIRED
     password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
-    realm: ${KEYCLOAK_REALM:FounderID}
+    realm: ${keycloak.realm}
 eureka.client.service-url:
   defaultZone: http://registry.service-governance.dev.fzyun.io/eureka
 
@@ -63,9 +63,9 @@ spring:
         web-allow-others: true
 
   rabbitmq:
-    host: ${SPRING_RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
-    port: ${SPRING_RABBITMQ_PORT:5672}
-    username: ${SPRING_RABBITMQ_USERNAME:founder}
-    password: ${SPRING_RABBITMQ_PASSWORD:Founder123}
+    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq.dev.fzyun.io}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:founder}
+    password: ${RABBITMQ_PASSWORD:Founder123}
     publisher-confirms: true
     virtual-host: /

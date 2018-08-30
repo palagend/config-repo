@@ -11,7 +11,7 @@ kb.home.url: http://kb.fzyun.net
 
 ##### KEYCLOAK #####
 keycloak:
-  realm: Founder
+  realm: ${KEYCLOAK_REALM:FounderID}
   auth-server-url: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth}
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
@@ -32,7 +32,7 @@ avatar:
     serverUrl: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER:admin} #REQUIRED
     password: ${KEYCLOAK_PASSWORD} #REQUIRED
-    realm: ${KEYCLOAK_REALM:Founder}
+    realm: ${keycloak.realm}
 eureka.client.service-url:
   defaultZone: http://localhost:8761/eureka
 
