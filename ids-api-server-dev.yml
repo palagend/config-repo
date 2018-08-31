@@ -1,6 +1,6 @@
 management.endpoints.web.exposure.include: [refresh,health,info]
 logging:
-  config: classpath:logback-logstash.xml
+  config: ${LOGGING_CONFIG:classpath:logback-logstash.xml}
   level.com.founder.ark.ids: trace
 redis:
   host: redis
@@ -12,7 +12,7 @@ kb.home.url: http://kb.fzyun.net
 ##### KEYCLOAK #####
 keycloak:
   realm: ${KEYCLOAK_REALM:FounderID} #REQUIRED
-  auth-server-url: ${AUTH_SERVER_URL:http://kc.kc.dev.fzyun.io/auth} #REQUIRED
+  auth-server-url: ${AUTH_SERVER_URL:http://auth.auth:8080/auth} #REQUIRED
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
   credentials.secret: ${CLIENT_SECRET} #REQUIRED
@@ -35,7 +35,7 @@ avatar:
     password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
     realm: ${keycloak.realm}
 eureka.client.service-url:
-  defaultZone: http://registry.service-governance.dev.fzyun.io/eureka
+  defaultZone: ${EUREKA_SERVER_URL:http://registry.service-governance:8761/eureka}
 eureka.instance.hostname: ${EUREKA_HOSTNAME:${spring.application.name}.avatar}
 
 ###### Spring H2 Database 设置 (如果用MySQL请替换这里的设置)######
@@ -64,7 +64,7 @@ spring:
         web-allow-others: true
 
   rabbitmq:
-    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq.dev.fzyun.io}
+    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME:founder}
     password: ${RABBITMQ_PASSWORD:Founder123}
