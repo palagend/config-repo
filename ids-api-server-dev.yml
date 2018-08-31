@@ -11,8 +11,8 @@ kb.home.url: http://kb.fzyun.net
 
 ##### KEYCLOAK #####
 keycloak:
-  realm: ${KEYCLOAK_REALM:FounderID} #REQUIRED
-  auth-server-url: ${AUTH_SERVER_URL:http://auth.auth:8080/auth} #REQUIRED
+  realm: ${KEYCLOAK_REALM} #REQUIRED
+  auth-server-url: ${AUTH_SERVER_URL} #REQUIRED
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
   credentials.secret: ${CLIENT_SECRET} #REQUIRED
@@ -31,8 +31,8 @@ avatar:
     admin-realm: ${KEYCLOAK_ADMINREALM:master}
     client: ${KEYCLOA_ADMINCLIENT:admin-cli}
     serverUrl: ${keycloak.auth-server-url}
-    username: ${KEYCLOAK_USER:admin} #REQUIRED
-    password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
+    username: ${KEYCLOAK_USER} #REQUIRED
+    password: ${KEYCLOAK_PASSWORD} #REQUIRED
     realm: ${keycloak.realm}
 eureka.client.service-url:
   defaultZone: ${EUREKA_SERVER_URL:http://registry.service-governance/eureka}
@@ -66,8 +66,8 @@ spring:
   rabbitmq:
     host: ${RABBITMQ_HOST:rabbitmq.rabbitmq}
     port: ${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_USERNAME:founder}
-    password: ${RABBITMQ_PASSWORD:Founder123}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
     publisher-confirms: true
     virtual-host: /
 logstash.destination: elk.service-governance:5044

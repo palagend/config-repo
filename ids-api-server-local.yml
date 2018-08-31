@@ -10,8 +10,8 @@ kb.home.url: http://kb.fzyun.net
 
 ##### KEYCLOAK #####
 keycloak:
-  realm: ${KEYCLOAK_REALM:FounderID}
-  auth-server-url: ${AUTH_SERVER_URL:http://auth.stage.fzyun.io/auth}
+  realm: ${KEYCLOAK_REALM}
+  auth-server-url: ${AUTH_SERVER_URL}
   ssl-required: external
   resource: ${KEYCLOAK_CLIENT} #REQUIRED
   credentials.secret: ${CLIENT_SECRET} #REQUIRED
@@ -29,7 +29,7 @@ avatar:
     admin-realm: master
     client: admin-cli
     serverUrl: ${keycloak.auth-server-url}
-    username: ${KEYCLOAK_USER:admin} #REQUIRED
+    username: ${KEYCLOAK_USER} #REQUIRED
     password: ${KEYCLOAK_PASSWORD} #REQUIRED
     realm: ${keycloak.realm}
 eureka.client.service-url:
@@ -61,7 +61,7 @@ spring:
         web-allow-others: false
 
   rabbitmq:
-    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq.stage.fzyun.io}
+    host: ${RABBITMQ_HOST:rabbitmq.rabbitmq.dev.fzyun.io}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
