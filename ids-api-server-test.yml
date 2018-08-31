@@ -3,7 +3,7 @@ logging:
   config: ${LOGGING_CONFIG:classpath:logback-logstash.xml}
   level.com.founder.ark.ids: trace
 redis:
-  host: redis
+  host: localhost
   port: 6379
   check: true
 ids.home.url: http://ids-admin.fzyun.io

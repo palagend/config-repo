@@ -2,9 +2,9 @@ management.endpoints.web.exposure.include: '*'
 logging:
   level.com.founder.ark.ids: trace
 redis:
-  host: redis
+  host: localhost
   port: 6379
-  check: false
+  check: true
 ids.home.url: http://ids-admin.fzyun.io
 kb.home.url: http://kb.fzyun.net
 
