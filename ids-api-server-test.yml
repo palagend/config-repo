@@ -35,7 +35,7 @@ avatar:
     password: ${KEYCLOAK_PASSWORD:admin} #REQUIRED
     realm: ${keycloak.realm}
 eureka.client.service-url:
-  defaultZone: ${EUREKA_SERVER_URL:http://registry.service-governance:8761/eureka}
+  defaultZone: ${EUREKA_SERVER_URL:http://registry.service-governance/eureka}
 eureka.instance.hostname: ${EUREKA_HOSTNAME:${spring.application.name}.avatar}
 
 ###### Spring H2 Database 设置 (如果用MySQL请替换这里的设置)######
