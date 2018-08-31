@@ -26,9 +26,9 @@ keycloak:
 ##### AVATAR: KEYCLOAK-ADMIN-CLIENT #####
 avatar:
   keycloak:
-    admin-realm: master
-    client: admin-cli
-    serverUrl: ${keycloak.auth-server-url}
+    master-realm: master
+    admin-client: admin-cli
+    server-url: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER} #REQUIRED
     password: ${KEYCLOAK_PASSWORD} #REQUIRED
     realm: ${keycloak.realm}

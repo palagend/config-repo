@@ -3,7 +3,7 @@ logging:
   config: ${LOGGING_CONFIG:classpath:logback-logstash.xml}
   level.com.founder.ark.ids: trace
 redis:
-  host: localhost
+  host: redis
   port: 6379
   check: false
 ids.home.url: http://ids-admin.fzyun.io
@@ -28,9 +28,9 @@ keycloak:
 ##### AVATAR: KEYCLOAK-ADMIN-CLIENT #####
 avatar:
   keycloak:
-    admin-realm: ${KEYCLOAK_ADMINREALM:master}
-    client: ${KEYCLOA_ADMINCLIENT:admin-cli}
-    serverUrl: ${keycloak.auth-server-url}
+    master-realm: ${KEYCLOAK_ADMINREALM:master}
+    admin-client: ${KEYCLOA_ADMINCLIENT:admin-cli}
+    server-url: ${keycloak.auth-server-url}
     username: ${KEYCLOAK_USER} #REQUIRED
     password: ${KEYCLOAK_PASSWORD} #REQUIRED
     realm: ${keycloak.realm}
