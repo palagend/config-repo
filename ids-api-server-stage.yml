@@ -5,7 +5,7 @@ logging:
 redis:
   host: redis
   port: 6379
-  check: false
+  check: true
 ids.home.url: http://ids-admin.fzyun.io
 kb.home.url: http://kb.fzyun.net
 
