@@ -27,6 +27,8 @@ keycloak:
 
 ##### AVATAR: KEYCLOAK-ADMIN-CLIENT #####
 avatar:
+  username: autotest
+  password: Founder123
   keycloak:
     master-realm: ${KEYCLOAK_MASTER_REALM:master}
     admin-client: ${KEYCLOA_ADMIN_CLIENT:admin-cli}
