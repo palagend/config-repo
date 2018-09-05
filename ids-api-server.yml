@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username2: root
+    password2: Founder123
+    url2: jdbc:mysql://kc-db.kc:3306/keycloak?useUnicode=true&characterEncoding=UTF8
