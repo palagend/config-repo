@@ -44,7 +44,6 @@ spring:
     password:
     driverClassName: org.h2.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
     properties:
@@ -67,3 +66,13 @@ spring:
     password: ${RABBITMQ_PASSWORD}
     publisher-confirms: true
     virtual-host: /
+
+red.spring.datasource.jdbc-url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+red.spring.datasource.username: sa
+red.spring.datasource.password:
+red.spring.datasource.driver-class-name: org.h2.Driver
+
+orange.spring.datasource.jdbc-url: jdbc:mysql://kc-db.kc.dev.fzyun.io:3820/keycloak?useUnicode=true&characterEncoding=UTF8&useSSL=false
+orange.spring.datasource.username: root
+orange.spring.datasource.password: Founder123
+orange.spring.datasource.driver-class-name: com.mysql.jdbc.Driver

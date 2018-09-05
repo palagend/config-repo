@@ -1,9 +1,9 @@
 red.spring.datasource.jdbc-url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-red.spring.username: sa
-red.spring.password:
-red.spring.driver-class-name: org.h2.Driver
+red.spring.datasource.username: sa
+red.spring.datasource.password:
+red.spring.datasource.driver-class-name: org.h2.Driver
 
 orange.spring.datasource.jdbc-url: jdbc:mysql://kc-db.kc:3306/keycloak?useUnicode=true&characterEncoding=UTF8&useSSL=false
-orange.spring.username: root
-orange.spring.password: Founder123
-orange.spring.driver-class-name: com.mysql.jdbc.Driver
+orange.spring.datasource.username: root
+orange.spring.datasource.password: Founder123
+orange.spring.datasource.driver-class-name: com.mysql.jdbc.Driver
