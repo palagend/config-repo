@@ -1,0 +1,31 @@
+server:
+    port: 8080
+    #本工程访问地址，如果通过网关访问别忘了加服务名
+    root-path: ${SERVER_ROOTPATH:http://localhost:8080}
+    #文件映射路径
+    file-mapping-path: /file/
+    #文件存储路径
+    file-save-path: /var/lib/ids-file-server/data
+spring:
+    application:
+        name: ids-file-server
+    http:
+        #上传文件控制
+        multipart:
+            enabled: true
+            max-file-size: 2048MB
+            max-request-size: 2048MB
+
+    #日期格式
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+
+    #日志收集集成ELK
+    logstash:
+        #logstash地址
+        destination: elk.service-governance:5044
+
+eureka.client.service-url:
+            defaultZone: ${EUREKA_SERVER_URL:http://registry.service-governance/eureka}
+eureka.instance.hostname: ${EUREKA_HOSTNAME:${spring.application.name}.avatar}
